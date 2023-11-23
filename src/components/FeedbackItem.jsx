@@ -1,14 +1,17 @@
+import {FaNapster, FaPenFancy, FaTimes} from 'react-icons/fa'
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import Card from './shared/Card';
 
-function FeedbackItem({ feedbackObj }) {
+//feedbackObj is a prop from FeedbackList, 
+function FeedbackItem({ feedbackObj, handleDelete }) {
+  
+  
   // Card component receives two divs as props {chidlren}
-  //feedbackObj is being mapped and each iteration creates a new feedback item
-
   return (
     <Card reverse={false}>
       <div className="num-display">{feedbackObj.rating}</div>
+      <button onClick={()=> handleDelete(feedbackObj.id)} className="close"><FaTimes color='purple' />
+      </button>
       <div className="text-display">{feedbackObj.text}</div>
     </Card>
   );

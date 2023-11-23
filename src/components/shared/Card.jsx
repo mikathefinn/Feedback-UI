@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 function Card({ children, reverse }) {
   // if reverse is true, then className is 'card reverse'
+  //{children} are the children of Card component in FeedbackItem 
   return <div className={`card ${reverse && 'reverse'}`}>{children}</div>;
 }
 

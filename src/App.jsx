@@ -6,13 +6,26 @@ import FeedbackList from './components/FeedbackList';
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
-// pass FeedbackData as props to FeedbackList
+  const deleteFeedback = (id) => {
+    console.log(id);
+    if (window.confirm('Are you sure you want to delete?')) {
+      setFeedback(
+        feedback.filter((feedbackItem) => {
+         return feedbackItem.id !== id;
+        })
+      );
+    }
+  };
+  // function deleteFeedback is passed (through FeedbackList) to FeedbackItem as a prop
+  // FeedbackList does not "use" it, it is just passing the info ('prop drilling')
+  //in FeedbackItem, deleteFeedback gets it's parameter id from feedbackObj.id
+
+  // pass FeedbackData as props to FeedbackList
   return (
     <>
       <Header />
       <div className="container">
-      
-        <FeedbackList feedback={feedback}/>
+        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>
     </>
   );
