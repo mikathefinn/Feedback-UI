@@ -27,6 +27,7 @@ function FeedbackForm({ handleAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // double check that text is 10 characters long
     if (text.trim().length > 10) {
       const newFeedback = {
         text: text,
@@ -39,6 +40,7 @@ function FeedbackForm({ handleAdd }) {
 
   return (
     <Card>
+    {/*  */}
       <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us?</h2>
         {/* pass a function as a prop to the RatingSelect component, which sets rating with the value of selected radio button*/}
