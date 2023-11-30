@@ -33,20 +33,6 @@ function FeedbackList() {
       </AnimatePresence>
     </div>
   );
-
-  // return (
-  //   <div className="feedback-list">
-  //     {feedback.map((item) => {
-  //       return (
-  //         <FeedbackItem
-  //           key={item.id}
-  //           feedbackObj={item}
-  //           handleDelete={handleDelete}
-  //         />
-  //       );
-  //     })}
-  //   </div>
-  // );
 }
 
 export default FeedbackList;

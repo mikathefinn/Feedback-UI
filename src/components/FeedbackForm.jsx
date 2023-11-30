@@ -12,15 +12,15 @@ function FeedbackForm() {
   const [message, setMessage] = useState('')
   // from Context
   // editState is the FeedbackItem object. When clicked, shit happens so gotta import useEffect
-  const { addFeedback, editState } = useContext(FeedbackContext)
+  const { addFeedback, editState, updateFeedback } = useContext(FeedbackContext)
 
   // whenever editState changes, useEffect will run.
   useEffect(() => {
     if (editState.edit === true) {
+      
       setBtnDisabled(false)
       setText(editState.feedbackObj.text)
       setRating(editState.feedbackObj.rating)
-     
     }
   }, [editState])
 
@@ -43,12 +43,19 @@ function FeedbackForm() {
     e.preventDefault()
     // double check that text is 10 characters long
     if (text.trim().length > 10) {
+      //create a new feedback item and pass it to either editState or addFeedback
       const newFeedback = {
         text: text,
         rating: rating,
       }
-      addFeedback(newFeedback)
+      if (editState.edit === true) {
+      
+        updateFeedback(editState.feedbackObj.id, newFeedback)
+      } else {
+        addFeedback(newFeedback)
+      }
       setText('')
+      
     }
   }
 
