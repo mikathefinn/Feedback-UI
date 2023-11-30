@@ -16,6 +16,7 @@ function FeedbackStats() {
   return (
     <div className='feedback-stats'>
       <h4> {feedback.length} Reviews</h4>
+      {/*isNan is a function to check if average is a NaN */}
       <h4> Average rating: {isNaN(average) ? 0 : average} </h4>
       FeedbackStats
     </div>
