@@ -21,8 +21,12 @@ export const FeedbackProvider = ({ children }) => {
       rating: 8,
     },
   ])
-// item is the item being edited
-  const [feedbackEdit, setFeedbackEdit] =useState({feedbakcObj:{}, edit: false}) 
+
+  // item is the item being edited
+  const [editState, setEditState] = useState({ feedbakcObj: {}, edit: false })
+
+
+  //FUNCTIONS
 
   const deleteFeedback = (id) => {
     console.log(id)
@@ -34,20 +38,29 @@ export const FeedbackProvider = ({ children }) => {
       )
     }
   }
+
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4()
     //add newFeedback to feedback array, with the rest of the "old" array
     setFeedback([newFeedback, ...feedback])
   }
-// set FeedbackItem edit
-  const editFeedback = (feedbackObj) =>{
-    setFeedbackEdit({feedbackObj, edit:true})
 
+  // edit Feedback Item by setting the object in editState as the feedbackObj from Feedback Item (that has been clicked)
+  // also set edit: true
+  const editFeedback = (feedbackObj) => {
+    setEditState({ feedbackObj, edit: true })
   }
 
   // anything that is passed to the value can be used in components via useContext
   return (
-    <FeedbackContext.Provider value={{ feedback, deleteFeedback, addFeedback, editFeedback }}>
+    <FeedbackContext.Provider
+      value={{
+        feedback,
+        deleteFeedback,
+        addFeedback,
+        editFeedback,
+        editState,
+      }}>
       {children}
     </FeedbackContext.Provider>
   )
