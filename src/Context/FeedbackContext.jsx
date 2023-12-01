@@ -7,18 +7,18 @@ export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState([
     {
       id: 1,
-      text: 'This item is from context',
+      text: 'It has been months and I still feel the pain',
       rating: 10,
     },
     {
       id: 2,
-      text: 'This item is from context so fuck you.',
+      text: "I've been kicked harder but still worth the money.",
       rating: 7,
     },
     {
       id: 3,
-      text: "This item is from context so why don't you fuck off?",
-      rating: 8,
+      text: "Timothy know's what he's doing, a great experience for the whole family.",
+      rating: 9,
     },
   ])
 

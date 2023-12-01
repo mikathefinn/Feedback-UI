@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #202142;
+  background-color: #242423;
   margin: 2rem;
   color: #fff;
   line-height: 1.6;
@@ -31,6 +31,11 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.timothy{
+  width: 100%;
+  border-radius: 10px;
 }
 
 .card {
@@ -88,7 +93,7 @@ header {
 
 .rating li:hover,
 .num-display {
-  background: #ff6a95;
+  background: #f3b301;
   color: #fff;
 }
 
@@ -97,7 +102,7 @@ header {
 }
 
 [type='radio']:checked ~ label {
-  background: #ff6a95;
+  background: #f3b301;
   color: #fff;
 }
 
@@ -157,11 +162,11 @@ input:focus {
 }
 
 .btn-primary {
-  background-color: #202142;
+  background-color: #105e88;
 }
 
 .btn-secondary {
-  background: #ff6a95;
+  background: #ad2831;
 }
 
 .btn:hover {
@@ -183,7 +188,7 @@ input:focus {
 .message {
   padding-top: 10px;
   text-align: center;
-  color: rebeccapurple;
+  color: rgb(220, 101, 16);
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
@@ -201,7 +206,7 @@ input:focus {
 }
 
 .about-link a:hover {
-  color: #ff6a95;
+  color: #f3b301;
 }
 
 .about h1 {

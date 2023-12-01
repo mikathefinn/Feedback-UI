@@ -4,6 +4,7 @@ import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 import FeedbackContext from '../Context/FeedbackContext'
+import timothy from '../data/Timothy.png'
 
 function FeedbackForm() {
   const [text, setText] = useState('')
@@ -61,9 +62,10 @@ function FeedbackForm() {
 
   return (
     <Card>
-      {/*  */}
+    <h1>Timothy's Ball Buster Feedback Form</h1>
+     <img className='timothy' src={timothy} />
       <form onSubmit={handleSubmit}>
-        <h2>How would you rate your service with us?</h2>
+        <h2>Your pain is our gain!  Let us know how Timothy's nut-kick measured up on your personal pain scale. </h2>
         {/* pass a function as a prop to the RatingSelect component, which sets rating with the value of selected radio button*/}
         <RatingSelect select={(rating) => setRating(rating)} />
         <div className='input-group'>
