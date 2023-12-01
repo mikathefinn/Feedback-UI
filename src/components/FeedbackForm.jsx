@@ -62,7 +62,7 @@ function FeedbackForm() {
 
   return (
     <Card>
-    <h1>Timothy's Ball Buster Feedback Form</h1>
+    
      <img className='timothy' src={timothy} />
       <form onSubmit={handleSubmit}>
         <h2>Your pain is our gain!  Let us know how Timothy's nut-kick measured up on your personal pain scale. </h2>
