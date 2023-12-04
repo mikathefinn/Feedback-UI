@@ -13,10 +13,10 @@ function FeedbackItem({ feedbackObj }) {
   return (
     <Card reverse={false}>
       <div className="num-display">{feedbackObj.rating}</div>
-      <button onClick={()=> deleteFeedback(feedbackObj.id)} className="close"><FaTimes color='purple' />
+      <button onClick={()=> deleteFeedback(feedbackObj.id)} className="close"><FaTimes color='red' />
       </button>
-      <button className='edit' onClick={()=>editFeedback(feedbackObj)}><FaEdit color='purple'/></button>
-      <div className="text-display">{feedbackObj.text}</div>
+      <button className='edit' onClick={()=>editFeedback(feedbackObj)}><FaEdit color='green'/></button>
+      <div className="text-display">{feedbackObj.feedback}</div>
     </Card>
   );
 }
