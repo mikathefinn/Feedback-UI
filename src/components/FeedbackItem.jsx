@@ -16,7 +16,7 @@ function FeedbackItem({ feedbackObj }) {
       <button onClick={()=> deleteFeedback(feedbackObj.id)} className="close"><FaTimes color='red' />
       </button>
       <button className='edit' onClick={()=>editFeedback(feedbackObj)}><FaEdit color='green'/></button>
-      <div className="text-display">{feedbackObj.feedback}</div>
+      <div className="text-display">{feedbackObj.text}</div>
     </Card>
   );
 }

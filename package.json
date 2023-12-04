@@ -1,7 +1,6 @@
 {
   "homepage": "https://mikathefinn.github.io/Feedback-UI",
   "name": "feeback-app",
-  "proxy":"http://localhost:5000",
   "private": true,
   "version": "0.0.0",
   "type": "module",

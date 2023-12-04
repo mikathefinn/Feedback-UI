@@ -18,8 +18,7 @@ export const FeedbackProvider = ({ children }) => {
   const fetchFeedback = async () => {
     // sort by id, descending order
     const response = await fetch(
-      'http://localhost:5000/feedback?_sort=id&_order=desc',
-      {}
+      'http://localhost:5000/feedback?_sort=id&_order=desc'
     )
 
     const data = await response.json()
@@ -27,9 +26,25 @@ export const FeedbackProvider = ({ children }) => {
     setIsLoading(false)
   }
 
+  // ADD FEEDBACK
+  //newFeedback from FeedbackItem
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch('http://localhost:5000/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newFeedback),
+    })
+    const data = await response.json()
+    console.log(data)
+    //add newFeedback to feedback array, with the rest of the "old" array
+    setFeedback([data, ...feedback])
+  }
+
   // DELETE FEEDBACK
-  const deleteFeedback = (id) => {
+  const deleteFeedback = async (id) => {
     if (window.confirm('Are you sure you want to delete?')) {
+      await fetch(`http://localhost:5000/feedback/${id}`, { method: 'DELETE' })
+
       setFeedback(
         feedback.filter((feedbackItem) => {
           return feedbackItem.id !== id
@@ -38,22 +53,21 @@ export const FeedbackProvider = ({ children }) => {
     }
   }
 
-  // ADD FEEDBACK
-  //newFeedback from FeedbackItem
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4()
-    //add newFeedback to feedback array, with the rest of the "old" array
-    setFeedback([newFeedback, ...feedback])
-  }
-
   // UPDATE FEEDBACK
   // id of the item clicked, updated text
-  const updateFeedback = (id, updatedItem) => {
+  const updateFeedback =async (id, updatedItem) => {
+    const response = await fetch(`http://localhost:5000/feedback/${id}`,{
+      method: 'PUT',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify(updatedItem)
+    })
+    const data = await response.json()
+
     setFeedback(
       //if the item.id matches the id of the object being edited, new array is returned where
-      //updatedItem will override any of the same values in item-object.
+      //data(=updated Item) will override any of the same values in item-object.
       feedback.map((item) =>
-        item.id === id ? { ...item, ...updatedItem } : item
+        item.id === id ? { ...item, ...data } : item
       )
     )
   }
